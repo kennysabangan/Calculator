@@ -8,12 +8,12 @@ var operation = "";
 var secondNumber = "";
 
 function press(number) {
+    if (number == "." && secondNumber === 0) {
+        clr();
+    }
+
     if (displayNum === 0 || displayNum === "0" || secondNumber === 0) {
         displayNum = number.toString();
-
-        if (number == ".") {
-            displayNum = "0.";
-        }
 
         if (operation != "") {
             secondNumber = number.toString();
@@ -45,7 +45,8 @@ function setOP(operator) {
         calculate();
     }
 
-    firstNumber = displayNum;
+    firstNumber = displayNum.toString();
+    console.log(typeof firstNumber);
     secondNumber = 0;
     operation = operator;
 
@@ -78,7 +79,7 @@ function calculate() {
     firstNumber = displayNum;
     operation = "";
     secondNumber = 0;
-    updateDisplay(displayNum)
+    updateDisplay(displayNum.toString())
 }
 
 function updateDisplay(newNumber) {
@@ -123,4 +124,6 @@ document.addEventListener("keydown", (e) => {
     } else if (e.key == "Backspace") {
         clr();
     }
+
+    console.log(firstNumber, operation, secondNumber);
 })
