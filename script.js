@@ -8,15 +8,16 @@ var operation = "";
 var secondNumber = "";
 
 function press(number) {
-    if (number == "." && secondNumber === 0) {
-        clr();
-    }
-
     if (displayNum === 0 || displayNum === "0" || secondNumber === 0) {
         displayNum = number.toString();
 
         if (operation != "") {
             secondNumber = number.toString();
+        }
+
+        if (number == "." && secondNumber === 0) {
+            clr();
+            displayNum = number;
         }
 
     } else {
@@ -41,7 +42,7 @@ function clr() {
 }
 
 function setOP(operator) {
-    if (firstNumber !== 0 && secondNumber !== 0) {
+    if (firstNumber != 0 && secondNumber != 0) {
         calculate();
     }
 
