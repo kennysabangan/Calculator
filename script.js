@@ -46,7 +46,6 @@ function setOP(operator) {
     }
 
     firstNumber = displayNum.toString();
-    console.log(typeof firstNumber);
     secondNumber = 0;
     operation = operator;
 
@@ -124,6 +123,4 @@ document.addEventListener("keydown", (e) => {
     } else if (e.key == "Backspace") {
         clr();
     }
-
-    console.log(firstNumber, operation, secondNumber);
 })
